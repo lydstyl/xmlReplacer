@@ -750,6 +750,10 @@ This field is used instead "Name" if filled (completed)</description>
                         <display xml:lang="nl-BE">Beauty</display>
                         <value>Beauty</value>
                     </value-definition>
+                    <value-definition>
+                        <display xml:lang="fr-FR">tuto coiffure</display>
+                        <value>hairstyler tutorials</value>
+                    </value-definition>
                 </value-definitions>
             </attribute-definition>
             <attribute-definition attribute-id="begin_date">
@@ -1894,15 +1898,15 @@ This field is used instead "Name" if filled (completed)</description>
                 <attribute attribute-id="customCSSFile"/>
                 <attribute attribute-id="imageBanner"/>
             </attribute-group>
+            <attribute-group group-id="Promo">
+                <display-name xml:lang="x-default">Promo</display-name>
+                <attribute attribute-id="imageHeader"/>
+            </attribute-group>
             <attribute-group group-id="BabylissBlog">
                 <display-name xml:lang="x-default">Babyliss-Blog</display-name>
                 <display-name xml:lang="fr-FR">Babyliss blog</display-name>
                 <attribute attribute-id="categoryTitle"/>
                 <attribute attribute-id="categoryDescription"/>
-            </attribute-group>
-            <attribute-group group-id="Promo">
-                <display-name xml:lang="x-default">Promo</display-name>
-                <attribute attribute-id="imageHeader"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -2415,6 +2419,14 @@ This field is used instead "Name" if filled (completed)</description>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="Bazaarvoice">
+                <display-name xml:lang="x-default">Bazaarvoice Attribute</display-name>
+                <attribute attribute-id="bvSentInPPEFeed"/>
+            </attribute-group>
+            <attribute-group group-id="Digital Store Solution">
+                <display-name xml:lang="x-default">Digital Store Solution</display-name>
+                <attribute attribute-id="eaEmployeeId"/>
+            </attribute-group>
             <attribute-group group-id="conair">
                 <display-name xml:lang="x-default">Conair Order Attributes</display-name>
                 <attribute attribute-id="discount"/>
@@ -2424,14 +2436,6 @@ This field is used instead "Name" if filled (completed)</description>
                 <attribute attribute-id="sapOrderNumber"/>
                 <attribute attribute-id="division"/>
                 <attribute attribute-id="sapSite"/>
-            </attribute-group>
-            <attribute-group group-id="Bazaarvoice">
-                <display-name xml:lang="x-default">Bazaarvoice Attribute</display-name>
-                <attribute attribute-id="bvSentInPPEFeed"/>
-            </attribute-group>
-            <attribute-group group-id="Digital Store Solution">
-                <display-name xml:lang="x-default">Digital Store Solution</display-name>
-                <attribute attribute-id="eaEmployeeId"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -2828,50 +2832,7 @@ This field is used instead "Name" if filled (completed)</description>
         </group-definitions>
     </type-extension>
 
-    <type-extension type-id="OrganizationPreferences">
-        <custom-attribute-definitions>
-            <attribute-definition attribute-id="csvToXmlDataMapping">
-                <display-name xml:lang="x-default">csvToXmlDataMapping</display-name>
-                <description xml:lang="x-default">exemple :&#13;
-&#13;
-[{&#13;
-    "element-name": "produits",&#13;
-    "element-content": [{&#13;
-            "element-name": "header",&#13;
-            "element-content": "contenu du header"&#13;
-        },&#13;
-        {&#13;
-            "element-name": "$loop",&#13;
-            "element-content": [{&#13;
-                "element-name": "produit",&#13;
-                "element-content": [{&#13;
-                        "element-name": "id",&#13;
-                        "element-content": "$col0"&#13;
-                    },&#13;
-                    {&#13;
-                        "element-name": "type",&#13;
-                        "element-content": "$col1"&#13;
-                    },&#13;
-                    {&#13;
-                        "element-name": "couleur",&#13;
-                        "element-content": "$col2"&#13;
-                    }&#13;
-                ]&#13;
-            }]&#13;
-        }&#13;
-    ]&#13;
-}]</description>
-                <type>text</type>
-                <mandatory-flag>true</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-            </attribute-definition>
-        </custom-attribute-definitions>
-        <group-definitions>
-            <attribute-group group-id="csvToXml">
-                <attribute attribute-id="csvToXmlDataMapping"/>
-            </attribute-group>
-        </group-definitions>
-    </type-extension>
+    <type-extension type-id="OrganizationPreferences"/>
 
     <type-extension type-id="PaymentCard">
         <system-attribute-definitions>
@@ -8953,16 +8914,6 @@ Suggérer une modification
                     </value-definition>
                 </value-definitions>
             </attribute-definition>
-            <attribute-definition attribute-id="offering_stores">
-                <type>set-of-string</type>
-                <localizable-flag>false</localizable-flag>
-                <site-specific-flag>false</site-specific-flag>
-                <mandatory-flag>false</mandatory-flag>
-                <visible-flag>false</visible-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <order-required-flag>false</order-required-flag>
-                <externally-defined-flag>false</externally-defined-flag>
-            </attribute-definition>
             <attribute-definition attribute-id="onOffSwitch">
                 <display-name xml:lang="x-default">On/Off Switch</display-name>
                 <display-name xml:lang="fr-CA">Interrupteur MARCHE/ARRÊT</display-name>
@@ -9282,7 +9233,6 @@ Suggérer une modification
             </attribute-definition>
             <attribute-definition attribute-id="productRange">
                 <display-name xml:lang="x-default">productRange</display-name>
-                <description xml:lang="x-default">gamme de produit exemple none, digital sensor, pro</description>
                 <type>enum-of-string</type>
                 <localizable-flag>false</localizable-flag>
                 <site-specific-flag>false</site-specific-flag>
@@ -9296,7 +9246,7 @@ Suggérer une modification
                         <display xml:lang="x-default">pro</display>
                         <value>pro</value>
                     </value-definition>
-                    <value-definition default="true">
+                    <value-definition>
                         <display xml:lang="x-default">digitalSensor</display>
                         <value>digitalSensor</value>
                     </value-definition>
@@ -10490,6 +10440,11 @@ Suggérer une modification
                 <attribute attribute-id="EAN" system="true"/>
                 <attribute attribute-id="UPC" system="true"/>
             </attribute-group>
+            <attribute-group group-id="ChannelIntegration">
+                <display-name xml:lang="x-default">Channel Integration Attributes</display-name>
+                <attribute attribute-id="pinterestEnabled" system="true"/>
+                <attribute attribute-id="facebookEnabled" system="true"/>
+            </attribute-group>
             <attribute-group group-id="Store">
                 <display-name xml:lang="x-default">Store Attributes</display-name>
                 <attribute attribute-id="storeReceiptName" system="true"/>
@@ -10498,11 +10453,6 @@ Suggérer une modification
                 <attribute attribute-id="storeNonRevenueEnabled" system="true"/>
                 <attribute attribute-id="storeNonInventoryEnabled" system="true"/>
                 <attribute attribute-id="storeForcePriceEnabled" system="true"/>
-            </attribute-group>
-            <attribute-group group-id="ChannelIntegration">
-                <display-name xml:lang="x-default">Channel Integration Attributes</display-name>
-                <attribute attribute-id="pinterestEnabled" system="true"/>
-                <attribute attribute-id="facebookEnabled" system="true"/>
             </attribute-group>
             <attribute-group group-id="inStorePickup">
                 <display-name xml:lang="x-default">In Store Pickup</display-name>
@@ -10553,14 +10503,59 @@ Suggérer une modification
             <attribute-group group-id="conair-videos">
                 <display-name xml:lang="x-default">Conair Videos</display-name>
                 <attribute attribute-id="videos"/>
+                <attribute attribute-id="videoDescriptions"/>
                 <attribute attribute-id="qrVideos"/>
+                <attribute attribute-id="qrVideoDescriptions"/>
                 <attribute attribute-id="tvAdverts"/>
+                <attribute attribute-id="tvAdvertDescriptions"/>
                 <attribute attribute-id="gettheLook"/>
+                <attribute attribute-id="gettheLookDescriptions"/>
                 <attribute attribute-id="videos-ca"/>
             </attribute-group>
-            <attribute-group group-id="retailer">
-                <display-name xml:lang="x-default">External Retailer</display-name>
-                <attribute attribute-id="retailerData"/>
+            <attribute-group group-id="cuisinart-refinements">
+                <display-name xml:lang="x-default">Cuisinart Canada Refinements</display-name>
+                <attribute attribute-id="bakewareType"/>
+                <attribute attribute-id="Wattage"/>
+                <attribute attribute-id="blenderType"/>
+                <attribute attribute-id="carafeType"/>
+                <attribute attribute-id="brewCapacity"/>
+                <attribute attribute-id="capacity"/>
+                <attribute attribute-id="cordType"/>
+                <attribute attribute-id="controlType"/>
+                <attribute attribute-id="collectionName"/>
+                <attribute attribute-id="handles"/>
+                <attribute attribute-id="grindControl"/>
+                <attribute attribute-id="frothingFunction"/>
+                <attribute attribute-id="function"/>
+                <attribute attribute-id="finish"/>
+                <attribute attribute-id="grindChamber"/>
+                <attribute attribute-id="kettleType"/>
+                <attribute attribute-id="material"/>
+                <attribute attribute-id="juicerType"/>
+                <attribute attribute-id="output"/>
+                <attribute attribute-id="nonStick"/>
+                <attribute attribute-id="origin"/>
+                <attribute attribute-id="programmable"/>
+                <attribute attribute-id="shape"/>
+                <attribute attribute-id="popcornType"/>
+                <attribute attribute-id="speedControl"/>
+                <attribute attribute-id="vesselMaterial"/>
+                <attribute attribute-id="warranty"/>
+                <attribute attribute-id="weight"/>
+                <attribute attribute-id="color"/>
+            </attribute-group>
+            <attribute-group group-id="cuisinartRecipes">
+                <display-name xml:lang="x-default">Cuisinart Recipes</display-name>
+                <attribute attribute-id="featuredRecipe"/>
+            </attribute-group>
+            <attribute-group group-id="cuisinartParts">
+                <display-name xml:lang="x-default">Cuisinart Parts</display-name>
+                <attribute attribute-id="parts"/>
+                <attribute attribute-id="baseModel"/>
+            </attribute-group>
+            <attribute-group group-id="cuisinartSupport">
+                <display-name xml:lang="x-default">Cuisinart Service &amp; Support</display-name>
+                <attribute attribute-id="serviceSupport"/>
             </attribute-group>
             <attribute-group group-id="dannyco-icons">
                 <display-name xml:lang="x-default">Dannyco Icons</display-name>
@@ -10612,50 +10607,9 @@ Suggérer une modification
                 <attribute attribute-id="steam"/>
                 <attribute attribute-id="color"/>
             </attribute-group>
-            <attribute-group group-id="cuisinart-refinements">
-                <display-name xml:lang="x-default">Cuisinart Canada Refinements</display-name>
-                <attribute attribute-id="bakewareType"/>
-                <attribute attribute-id="Wattage"/>
-                <attribute attribute-id="blenderType"/>
-                <attribute attribute-id="carafeType"/>
-                <attribute attribute-id="brewCapacity"/>
-                <attribute attribute-id="capacity"/>
-                <attribute attribute-id="cordType"/>
-                <attribute attribute-id="controlType"/>
-                <attribute attribute-id="collectionName"/>
-                <attribute attribute-id="handles"/>
-                <attribute attribute-id="grindControl"/>
-                <attribute attribute-id="frothingFunction"/>
-                <attribute attribute-id="function"/>
-                <attribute attribute-id="finish"/>
-                <attribute attribute-id="grindChamber"/>
-                <attribute attribute-id="kettleType"/>
-                <attribute attribute-id="material"/>
-                <attribute attribute-id="juicerType"/>
-                <attribute attribute-id="output"/>
-                <attribute attribute-id="nonStick"/>
-                <attribute attribute-id="origin"/>
-                <attribute attribute-id="programmable"/>
-                <attribute attribute-id="shape"/>
-                <attribute attribute-id="popcornType"/>
-                <attribute attribute-id="speedControl"/>
-                <attribute attribute-id="vesselMaterial"/>
-                <attribute attribute-id="warranty"/>
-                <attribute attribute-id="weight"/>
-                <attribute attribute-id="color"/>
-            </attribute-group>
-            <attribute-group group-id="cuisinartRecipes">
-                <display-name xml:lang="x-default">Cuisinart Recipes</display-name>
-                <attribute attribute-id="featuredRecipe"/>
-            </attribute-group>
-            <attribute-group group-id="cuisinartParts">
-                <display-name xml:lang="x-default">Cuisinart Parts</display-name>
-                <attribute attribute-id="parts"/>
-                <attribute attribute-id="baseModel"/>
-            </attribute-group>
-            <attribute-group group-id="cuisinartSupport">
-                <display-name xml:lang="x-default">Cuisinart Service &amp; Support</display-name>
-                <attribute attribute-id="serviceSupport"/>
+            <attribute-group group-id="retailer">
+                <display-name xml:lang="x-default">External Retailer</display-name>
+                <attribute attribute-id="retailerData"/>
             </attribute-group>
             <attribute-group group-id="Bazaarvoice">
                 <display-name xml:lang="x-default">Custom Attribute</display-name>
@@ -10690,34 +10644,6 @@ Suggérer une modification
                 <attribute attribute-id="expertReview"/>
                 <attribute attribute-id="categoryAlias"/>
                 <attribute attribute-id="ecotax"/>
-            </attribute-group>
-            <attribute-group group-id="quickChargeFunction"/>
-            <attribute-group group-id="BabylissEuropeAttributesFilters">
-                <display-name xml:lang="x-default">Babyliss Europe Attributs Filters</display-name>
-                <display-name xml:lang="fr-FR">Filtres liste produits Babyliss France</display-name>
-                <attribute attribute-id="FiltreBesoins"/>
-                <attribute attribute-id="FiltreVitesseDAir"/>
-                <attribute attribute-id="FiltreAccessoire"/>
-                <attribute attribute-id="FiltreBrosse"/>
-                <attribute attribute-id="FiltreCollections"/>
-                <attribute attribute-id="FiltreFonctions"/>
-                <attribute attribute-id="FiltreFormat"/>
-                <attribute attribute-id="FiltreHauteurDecoupe"/>
-                <attribute attribute-id="FiltreLongueurDeCheveux"/>
-                <attribute attribute-id="FiltreMatiere"/>
-                <attribute attribute-id="FiltreMoteurs"/>
-                <attribute attribute-id="FiltreOptions"/>
-                <attribute attribute-id="FiltrePicotsPoils"/>
-                <attribute attribute-id="FiltrePrecisions"/>
-                <attribute attribute-id="FiltreReglageHauteur"/>
-                <attribute attribute-id="FiltreSensDeBouclage"/>
-                <attribute attribute-id="FiltreStyle"/>
-                <attribute attribute-id="FiltreTypeDeCheveux"/>
-                <attribute attribute-id="FiltreSystemes"/>
-                <attribute attribute-id="FiltreUsages"/>
-                <attribute attribute-id="FiltreUtilisations"/>
-                <attribute attribute-id="FiltreBoucles"/>
-                <attribute attribute-id="FiltreNombreDeFlash"/>
             </attribute-group>
             <attribute-group group-id="BabylissEuropeAttributesComparaison">
                 <display-name xml:lang="x-default">Babyliss Europe Attributs Comparaison</display-name>
@@ -10767,6 +10693,34 @@ Suggérer une modification
                 <attribute attribute-id="ModeleLisseur"/>
                 <attribute attribute-id="ZoneDuCorps"/>
                 <attribute attribute-id="Diameter"/>
+            </attribute-group>
+            <attribute-group group-id="quickChargeFunction"/>
+            <attribute-group group-id="BabylissEuropeAttributesFilters">
+                <display-name xml:lang="x-default">Babyliss Europe Attributs Filters</display-name>
+                <display-name xml:lang="fr-FR">Filtres liste produits Babyliss France</display-name>
+                <attribute attribute-id="FiltreBesoins"/>
+                <attribute attribute-id="FiltreVitesseDAir"/>
+                <attribute attribute-id="FiltreAccessoire"/>
+                <attribute attribute-id="FiltreBrosse"/>
+                <attribute attribute-id="FiltreCollections"/>
+                <attribute attribute-id="FiltreFonctions"/>
+                <attribute attribute-id="FiltreFormat"/>
+                <attribute attribute-id="FiltreHauteurDecoupe"/>
+                <attribute attribute-id="FiltreLongueurDeCheveux"/>
+                <attribute attribute-id="FiltreMatiere"/>
+                <attribute attribute-id="FiltreMoteurs"/>
+                <attribute attribute-id="FiltreOptions"/>
+                <attribute attribute-id="FiltrePicotsPoils"/>
+                <attribute attribute-id="FiltrePrecisions"/>
+                <attribute attribute-id="FiltreReglageHauteur"/>
+                <attribute attribute-id="FiltreSensDeBouclage"/>
+                <attribute attribute-id="FiltreStyle"/>
+                <attribute attribute-id="FiltreTypeDeCheveux"/>
+                <attribute attribute-id="FiltreSystemes"/>
+                <attribute attribute-id="FiltreUsages"/>
+                <attribute attribute-id="FiltreUtilisations"/>
+                <attribute attribute-id="FiltreBoucles"/>
+                <attribute attribute-id="FiltreNombreDeFlash"/>
             </attribute-group>
             <attribute-group group-id="BabylissItalianHatch">
                 <display-name xml:lang="x-default">Babyliss Italian Hatch</display-name>
@@ -11066,6 +11020,10 @@ Suggérer une modification
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="return">
+                <display-name xml:lang="x-default">Return</display-name>
+                <attribute attribute-id="returnstatus"/>
+            </attribute-group>
             <attribute-group group-id="Endless Aisle">
                 <display-name xml:lang="x-default">Endless Aisle</display-name>
                 <attribute attribute-id="eaEmployeeId"/>
@@ -11073,10 +11031,6 @@ Suggérer une modification
                 <attribute attribute-id="eaPriceOverrideType"/>
                 <attribute attribute-id="eaPriceOverrideValue"/>
                 <attribute attribute-id="eaOverrideReasonCode"/>
-            </attribute-group>
-            <attribute-group group-id="return">
-                <display-name xml:lang="x-default">Return</display-name>
-                <attribute attribute-id="returnstatus"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -12734,6 +12688,20 @@ This field should be enabled after verifying cybersource merchant account settin
                 <min-length>0</min-length>
                 <default-value>https://testsecureacceptance.cybersource.com/silent/token/update</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="ShopifyConfirmationURL">
+                <display-name xml:lang="x-default">Shopify Confirmation URL</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="ShopifyErrorURL">
+                <display-name xml:lang="x-default">Shopify Error URL</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="SilverpopBabylissContact">
                 <display-name xml:lang="x-default">Silverpop Babyliss Contact</display-name>
                 <type>string</type>
@@ -13401,7 +13369,6 @@ false - Allow a consumer prompt</description>
             </attribute-definition>
             <attribute-definition attribute-id="disConfiguration">
                 <display-name xml:lang="x-default">Dynamic Image Configuration</display-name>
-                <description xml:lang="x-default">In diesem JSON werden die Transformationsregeln für die Product View Types festgelegt.</description>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -13939,14 +13906,12 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="promo_emailFrom">
-                <display-name xml:lang="x-default">promo_emailFrom</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="promo_emailTo">
-                <display-name xml:lang="x-default">promo_emailTo</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -13975,20 +13940,6 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
             </attribute-definition>
             <attribute-definition attribute-id="reCAPTCHASiteKey">
                 <display-name xml:lang="x-default">reCAPTCHA Site Key</display-name>
-                <type>string</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
-            </attribute-definition>
-            <attribute-definition attribute-id="reCaptchaPrivateKey">
-                <display-name xml:lang="x-default">ReCaptcha Private Key</display-name>
-                <type>string</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
-            </attribute-definition>
-            <attribute-definition attribute-id="reCaptchaPublicKey">
-                <display-name xml:lang="x-default">ReCaptcha Public Key</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -14045,7 +13996,6 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
-                <default-value>http://www.dpd.co.uk/tracking/quicktrack.do?search.consignmentNumber={0}&amp;search.searchType=16</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="shippingstatus_ftp_user">
                 <display-name xml:lang="x-default">ShippingStatusFTPUser</display-name>
@@ -14232,7 +14182,6 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Storefront Configs">
-                <display-name xml:lang="de-DE">Storefront Configs</display-name>
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
                 <attribute attribute-id="listPriceDefault"/>
                 <attribute attribute-id="salePriceDefault"/>
@@ -14265,53 +14214,11 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                 <attribute attribute-id="MailToOther"/>
                 <attribute attribute-id="setMailFrom"/>
             </attribute-group>
-            <attribute-group group-id="ReCaptcha">
-                <display-name xml:lang="x-default">ReCaptcha</display-name>
-                <attribute attribute-id="reCaptchaPublicKey"/>
-                <attribute attribute-id="reCaptchaPrivateKey"/>
-                <attribute attribute-id="reCAPTCHAEnabled"/>
-            </attribute-group>
             <attribute-group group-id="Google Analytics">
                 <display-name xml:lang="x-default">Google Analytics</display-name>
                 <attribute attribute-id="GoogleAnalyticsEnabled"/>
                 <attribute attribute-id="GoogleAnalyticsID"/>
                 <attribute attribute-id="GoogleAnalyticsDomainName"/>
-            </attribute-group>
-            <attribute-group group-id="SAP">
-                <display-name xml:lang="x-default">SAP Configurations</display-name>
-                <attribute attribute-id="sapSite"/>
-                <attribute attribute-id="sapAccountNumber"/>
-                <attribute attribute-id="OrdersNotAcknowledgedEmail"/>
-                <attribute attribute-id="division"/>
-            </attribute-group>
-            <attribute-group group-id="Silverpop">
-                <display-name xml:lang="x-default">Silverpop</display-name>
-                <attribute attribute-id="SilverpopMailingListID"/>
-                <attribute attribute-id="SilverpopDatabaseID"/>
-                <attribute attribute-id="SilverpopSpaList"/>
-                <attribute attribute-id="SilverpopSalonList"/>
-                <attribute attribute-id="SilverpopConsumerList"/>
-                <attribute attribute-id="SilverpopBarberList"/>
-                <attribute attribute-id="SilverpopBabylissDBID"/>
-                <attribute attribute-id="SilverpopBabylissForMenDBID"/>
-                <attribute attribute-id="SilverpopBabylissContactLang2"/>
-                <attribute attribute-id="SilverpopBabylissContact"/>
-                <attribute attribute-id="SilverpopBabylissForMenContact"/>
-                <attribute attribute-id="SilverpopBabylissForMenContactLang2"/>
-            </attribute-group>
-            <attribute-group group-id="reCAPTCHA">
-                <display-name xml:lang="x-default">reCAPTCHA Settings</display-name>
-                <attribute attribute-id="reCAPTCHAEnabled"/>
-                <attribute attribute-id="reCAPTCHASiteKey"/>
-                <attribute attribute-id="reCAPTCHASecret"/>
-            </attribute-group>
-            <attribute-group group-id="BarclayCard">
-                <display-name xml:lang="x-default">BarclayCard</display-name>
-                <attribute attribute-id="BarclayCardHashKey"/>
-                <attribute attribute-id="BarclayCardMerchantAccount"/>
-                <attribute attribute-id="BarclayCardHostedPaymentPage"/>
-                <attribute attribute-id="BarclayCardSharedSecret"/>
-                <attribute attribute-id="BarclayCardSkinCode"/>
             </attribute-group>
             <attribute-group group-id="Bazaarvoice Settings">
                 <display-name xml:lang="x-default">Bazaarvoice Settings</display-name>
@@ -14335,10 +14242,6 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                 <attribute attribute-id="bvOrderImageType_C2013"/>
                 <attribute attribute-id="bvPurchaseFeedTriggeringEvent_C2013"/>
                 <attribute attribute-id="bvAdminEmail_C2013"/>
-            </attribute-group>
-            <attribute-group group-id="XiPay">
-                <display-name xml:lang="x-default">XiPay</display-name>
-                <attribute attribute-id="XiInterceptMerchant"/>
             </attribute-group>
             <attribute-group group-id="Digital Store API">
                 <display-name xml:lang="x-default">Digital Store API</display-name>
@@ -14384,16 +14287,6 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
             <attribute-group group-id="InstagramAPI">
                 <display-name xml:lang="x-default">Instagram API settings</display-name>
                 <attribute attribute-id="maxInstragramImagesTTL"/>
-            </attribute-group>
-            <attribute-group group-id="INGENICO">
-                <display-name xml:lang="x-default">Ingenico</display-name>
-                <attribute attribute-id="ingenicoEndpoint_hostedcheckout"/>
-                <attribute attribute-id="ingenicoURL"/>
-                <attribute attribute-id="ingenicoTimeout"/>
-                <attribute attribute-id="ingenicoApiKey"/>
-                <attribute attribute-id="ingenicoSecretApiKey"/>
-                <attribute attribute-id="ingenicoMerchantId"/>
-                <attribute attribute-id="ingenicoApiVersion"/>
             </attribute-group>
             <attribute-group group-id="CyberSource_VisaCheckout">
                 <display-name xml:lang="x-default">CyberSource Visa Checkout</display-name>
@@ -14508,17 +14401,65 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                 <attribute attribute-id="merchantDescriptorCity"/>
                 <attribute attribute-id="merchantDescriptorCountry"/>
             </attribute-group>
+            <attribute-group group-id="BarclayCard">
+                <display-name xml:lang="x-default">BarclayCard</display-name>
+                <attribute attribute-id="BarclayCardHashKey"/>
+                <attribute attribute-id="BarclayCardMerchantAccount"/>
+                <attribute attribute-id="BarclayCardHostedPaymentPage"/>
+                <attribute attribute-id="BarclayCardSharedSecret"/>
+                <attribute attribute-id="BarclayCardSkinCode"/>
+            </attribute-group>
+            <attribute-group group-id="INGENICO">
+                <display-name xml:lang="x-default">Ingenico</display-name>
+                <attribute attribute-id="ingenicoEndpoint_hostedcheckout"/>
+                <attribute attribute-id="ingenicoURL"/>
+                <attribute attribute-id="ingenicoTimeout"/>
+                <attribute attribute-id="ingenicoApiKey"/>
+                <attribute attribute-id="ingenicoSecretApiKey"/>
+                <attribute attribute-id="ingenicoMerchantId"/>
+                <attribute attribute-id="ingenicoApiVersion"/>
+            </attribute-group>
             <attribute-group group-id="Promo">
                 <display-name xml:lang="x-default">Promo</display-name>
                 <attribute attribute-id="promo_emailFrom"/>
                 <attribute attribute-id="promo_emailTo"/>
             </attribute-group>
-            <attribute-group group-id="ShippingStatus">
-                <display-name xml:lang="x-default">ShippingStatus</display-name>
-                <attribute attribute-id="shippingstatus_ftp_user"/>
-                <attribute attribute-id="shippingstatus_ftp_url"/>
-                <attribute attribute-id="shippingstatus_ftp_folder"/>
-                <attribute attribute-id="shippingstatus_ftp_password"/>
+            <attribute-group group-id="SAP">
+                <display-name xml:lang="x-default">SAP Configurations</display-name>
+                <attribute attribute-id="sapSite"/>
+                <attribute attribute-id="sapAccountNumber"/>
+                <attribute attribute-id="OrdersNotAcknowledgedEmail"/>
+                <attribute attribute-id="division"/>
+            </attribute-group>
+            <attribute-group group-id="Shopify">
+                <display-name xml:lang="x-default">Shopify</display-name>
+                <attribute attribute-id="ShopifyConfirmationURL"/>
+                <attribute attribute-id="ShopifyErrorURL"/>
+            </attribute-group>
+            <attribute-group group-id="Silverpop">
+                <display-name xml:lang="x-default">Silverpop</display-name>
+                <attribute attribute-id="SilverpopMailingListID"/>
+                <attribute attribute-id="SilverpopDatabaseID"/>
+                <attribute attribute-id="SilverpopSpaList"/>
+                <attribute attribute-id="SilverpopSalonList"/>
+                <attribute attribute-id="SilverpopConsumerList"/>
+                <attribute attribute-id="SilverpopBarberList"/>
+                <attribute attribute-id="SilverpopBabylissDBID"/>
+                <attribute attribute-id="SilverpopBabylissForMenDBID"/>
+                <attribute attribute-id="SilverpopBabylissContactLang2"/>
+                <attribute attribute-id="SilverpopBabylissContact"/>
+                <attribute attribute-id="SilverpopBabylissForMenContact"/>
+                <attribute attribute-id="SilverpopBabylissForMenContactLang2"/>
+            </attribute-group>
+            <attribute-group group-id="XiPay">
+                <display-name xml:lang="x-default">XiPay</display-name>
+                <attribute attribute-id="XiInterceptMerchant"/>
+            </attribute-group>
+            <attribute-group group-id="reCAPTCHA">
+                <display-name xml:lang="x-default">reCAPTCHA Settings</display-name>
+                <attribute attribute-id="reCAPTCHAEnabled"/>
+                <attribute attribute-id="reCAPTCHASiteKey"/>
+                <attribute attribute-id="reCAPTCHASecret"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -14622,6 +14563,14 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
                     <value-definition>
                         <display xml:lang="x-default">France</display>
                         <value>FR</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Belgique</display>
+                        <value>BE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Luxembourg</display>
+                        <value>LU</value>
                     </value-definition>
                 </value-definitions>
             </attribute-definition>
@@ -14780,5 +14729,2373 @@ If using the Integration Framework the value of maxProductReviewsRetainmentDays 
     </type-extension>
 
     <type-extension type-id="TrackingRef"/>
+
+    <custom-type type-id="BTBankList">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="BTBankList">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="BankID">
+                <display-name xml:lang="x-default">Bank Id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="BankName">
+                <display-name xml:lang="x-default">Bank Name</display-name>
+                <description xml:lang="x-default">UUID of the same.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="paymentType">
+                <display-name xml:lang="x-default">Payment Type</display-name>
+                <description xml:lang="x-default">Use to filter the bank options for specific bank. e.g. iDeal.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="BankList">
+                <display-name xml:lang="x-default">Bank List</display-name>
+                <attribute attribute-id="BankName"/>
+                <attribute attribute-id="BTBankList"/>
+                <attribute attribute-id="BankID"/>
+                <attribute attribute-id="paymentType"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="CustomObjectViewConfig">
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="customObjectType">
+            <display-name xml:lang="x-default">Custom Object Type</display-name>
+            <description xml:lang="x-default">The type of the Custom Object</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="autoGenerateProperties">
+                <display-name xml:lang="x-default">Properties autogenerate</display-name>
+                <description xml:lang="x-default">the properties, that will be autogenerated and are not shown in edit form / listing</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="description">
+                <display-name xml:lang="x-default">Description</display-name>
+                <description xml:lang="x-default">the description on table header</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="foreignKeyProperties">
+                <display-name xml:lang="x-default">Properties that are hold ids of different custom object types</display-name>
+                <description xml:lang="x-default">the properties, that will be autogenerated and are not shown in edit form / listing</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="itemViewConfig">
+                <display-name xml:lang="x-default">item view config</display-name>
+                <description xml:lang="x-default">holds json strings to set special properties to several fields. E.g non deletable or readonly</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="jsonProperties">
+                <display-name xml:lang="x-default">json Properties</display-name>
+                <description xml:lang="x-default">the properties, that contain a json string</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="pagingSize">
+                <display-name xml:lang="x-default">Paging Size</display-name>
+                <description xml:lang="x-default">controls how many items are shown on one page</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="primaryKey">
+                <display-name xml:lang="x-default">Primary Key</display-name>
+                <description xml:lang="x-default">The primary key - used to determine which attribute should be used in create custom object method</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="startWithAllObjects">
+                <display-name xml:lang="x-default">Start with all objects</display-name>
+                <description xml:lang="x-default">if true a query is done, which fetches all objects initially</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Attributes">
+                <display-name xml:lang="de-DE">Attributes</display-name>
+                <display-name xml:lang="x-default">Attributes</display-name>
+                <attribute attribute-id="customObjectType"/>
+                <attribute attribute-id="primaryKey"/>
+                <attribute attribute-id="startWithAllObjects"/>
+                <attribute attribute-id="pagingSize"/>
+                <attribute attribute-id="description"/>
+                <attribute attribute-id="jsonProperties"/>
+                <attribute attribute-id="itemViewConfig"/>
+                <attribute attribute-id="foreignKeyProperties"/>
+                <attribute attribute-id="autoGenerateProperties"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="ExternalRetailers">
+        <display-name xml:lang="x-default">External Retailer Definitions</display-name>
+        <description xml:lang="x-default">External Retailer Definitions</description>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="DefaultUrl">
+                <display-name xml:lang="x-default">DefaultUrl</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="Logo">
+                <display-name xml:lang="x-default">Logo</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="Name">
+                <display-name xml:lang="x-default">Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="custom">
+                <display-name xml:lang="x-default">Custom</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="Logo"/>
+                <attribute attribute-id="Name"/>
+                <attribute attribute-id="DefaultUrl"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="InStockNotification">
+        <display-name xml:lang="x-default">In Stock Notification</display-name>
+        <description xml:lang="x-default">Object to hold customer in stock notification requests</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="ID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="alternateSKU">
+                <display-name xml:lang="x-default">Alternate SKU</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerEmail">
+                <display-name xml:lang="x-default">Customer Email</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="productSKU">
+                <display-name xml:lang="x-default">Product SKU</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sentNotification">
+                <display-name xml:lang="x-default">Sent Notification</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="notification">
+                <display-name xml:lang="x-default">Notification</display-name>
+                <attribute attribute-id="customerEmail"/>
+                <attribute attribute-id="productSKU"/>
+                <attribute attribute-id="alternateSKU"/>
+                <attribute attribute-id="sentNotification"/>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="lastModified" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="InstagramAPI">
+        <display-name xml:lang="fr-FR">Instagram API</display-name>
+        <description xml:lang="fr-FR">Instagram API calling for retreive public content by hashtag</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="ID">
+            <type>int</type>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="status">
+                <display-name xml:lang="x-default">Status</display-name>
+                <description xml:lang="x-default">Approval Status</description>
+                <type>enum-of-int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">OPEN</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">APPROVED</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">REJECTED</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="url">
+                <display-name xml:lang="x-default">instagram image url</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="url"/>
+                <attribute attribute-id="status"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="POS_MerchantIDs">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="x-default">POS Location</display-name>
+            <description xml:lang="x-default">State Code or Zip code or city name</description>
+            <type>string</type>
+            <min-length>0</min-length>
+            <field-length>0</field-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="MerchantID">
+                <display-name xml:lang="x-default">POS Merchant ID</display-name>
+                <description xml:lang="x-default">POS Merchant ID configured to use at a store</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="MerchantKey">
+                <display-name xml:lang="x-default">POS Merchant Security Key</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="POS">
+                <display-name xml:lang="x-default">POS</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="MerchantID"/>
+                <attribute attribute-id="MerchantKey"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="POS_TerminalMapping">
+        <display-name xml:lang="x-default">Serial ID</display-name>
+        <description xml:lang="x-default">Mapping of POS device's serial number to Terminal ID</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="serialID">
+            <display-name xml:lang="x-default">Serial Number</display-name>
+            <description xml:lang="x-default">Serial number of POS device</description>
+            <type>string</type>
+            <min-length>0</min-length>
+            <field-length>0</field-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="terminalID">
+                <display-name xml:lang="x-default">Terminal ID</display-name>
+                <description xml:lang="x-default">Terminal ID configured for POS device</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="POS">
+                <display-name xml:lang="x-default">POS</display-name>
+                <attribute attribute-id="serialID"/>
+                <attribute attribute-id="terminalID"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="ProductReview">
+        <display-name xml:lang="x-default">Product Review</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="x-default">ID</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+            <field-length>0</field-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="author">
+                <display-name xml:lang="x-default">Author</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="comment">
+                <display-name xml:lang="x-default">Comment</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">Email</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="headline">
+                <display-name xml:lang="x-default">Headline</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="location">
+                <display-name xml:lang="x-default">Location</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="productID">
+                <display-name xml:lang="x-default">Product ID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="rating">
+                <display-name xml:lang="x-default">Rating</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <display-name xml:lang="x-default">Status</display-name>
+                <description xml:lang="x-default">Approval Status</description>
+                <type>enum-of-int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">OPEN</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">APPROVED</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">REJECTED</display>
+                        <value>2</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="username">
+                <display-name xml:lang="x-default">Username</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="productID"/>
+                <attribute attribute-id="author"/>
+                <attribute attribute-id="location"/>
+                <attribute attribute-id="headline"/>
+                <attribute attribute-id="rating"/>
+                <attribute attribute-id="comment"/>
+                <attribute attribute-id="status"/>
+                <attribute attribute-id="email"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="PromotionSubscription">
+        <display-name xml:lang="x-default">Promotion subscription</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="address">
+                <display-name xml:lang="x-default">Address</display-name>
+                <description xml:lang="x-default">Customer address</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="address2">
+                <display-name xml:lang="x-default">Additional address</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="birthdate">
+                <display-name xml:lang="x-default">Birthdate</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <display-name xml:lang="x-default">City</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="country">
+                <display-name xml:lang="x-default">Country</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dateOfCreation">
+                <display-name xml:lang="x-default">Date of Creation</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">email</display-name>
+                <description xml:lang="x-default">Customer email</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="first_name">
+                <display-name xml:lang="x-default">First name</display-name>
+                <description xml:lang="x-default">Customer first name</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="gender">
+                <display-name xml:lang="x-default">Gender</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="iban">
+                <display-name xml:lang="x-default">IBAN</display-name>
+                <description xml:lang="x-default">if promotion attribute 'is_product_promo' is false, customer iban is required as the price of the 'product_offer' will be transferred to his/her account</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="is_complete">
+                <display-name xml:lang="x-default">Is complete</display-name>
+                <description xml:lang="x-default">The request has been processed, the offer has been applied</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="last_name">
+                <display-name xml:lang="x-default">Last name</display-name>
+                <description xml:lang="x-default">Customer last name</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <display-name xml:lang="x-default">Phone</display-name>
+                <description xml:lang="x-default">Customer phone number</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="postalCode">
+                <display-name xml:lang="x-default">Postal code</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="product_bought">
+                <display-name xml:lang="x-default">Product bought</display-name>
+                <description xml:lang="x-default">ID of the product bought</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="product_offered">
+                <display-name xml:lang="x-default">Product offered</display-name>
+                <description xml:lang="x-default">ID of the product offered</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="promo_id">
+                <display-name xml:lang="x-default">Promo id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="purchase_date">
+                <display-name xml:lang="x-default">Purchase date</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="receipt">
+                <display-name xml:lang="x-default">Receipt</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>50</field-length>
+                <field-height>1</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="state">
+                <display-name xml:lang="x-default">State</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="store">
+                <display-name xml:lang="x-default">Store</display-name>
+                <description xml:lang="x-default">ID of the store where the focus product has been bought</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="general">
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="is_complete"/>
+            </attribute-group>
+            <attribute-group group-id="customerinfo">
+                <display-name xml:lang="x-default">Customer information</display-name>
+                <attribute attribute-id="gender"/>
+                <attribute attribute-id="first_name"/>
+                <attribute attribute-id="last_name"/>
+                <attribute attribute-id="birthdate"/>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="phone"/>
+            </attribute-group>
+            <attribute-group group-id="address">
+                <display-name xml:lang="x-default">Address</display-name>
+                <attribute attribute-id="address"/>
+                <attribute attribute-id="address2"/>
+                <attribute attribute-id="postalCode"/>
+                <attribute attribute-id="city"/>
+                <attribute attribute-id="state"/>
+                <attribute attribute-id="country"/>
+            </attribute-group>
+            <attribute-group group-id="offerinfo">
+                <display-name xml:lang="x-default">Offer Information</display-name>
+                <attribute attribute-id="promo_id"/>
+                <attribute attribute-id="product_bought"/>
+                <attribute attribute-id="store"/>
+                <attribute attribute-id="purchase_date"/>
+                <attribute attribute-id="receipt"/>
+                <attribute attribute-id="iban"/>
+                <attribute attribute-id="product_offered"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="SA_MerchantPost">
+        <display-name xml:lang="x-default">SA_MerchantPost</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="OrderID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="postParams">
+                <display-name xml:lang="x-default">postParams</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="processed">
+                <display-name xml:lang="x-default">processed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="secureacceptance">
+                <attribute attribute-id="postParams"/>
+                <attribute attribute-id="processed"/>
+                <attribute attribute-id="OrderID"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="SilverpopRegistration">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="email">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="SilverpopBabylissDBID">
+                <display-name xml:lang="x-default">SilverpopBabylissDBID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="SilverpopBabylissForMenDBID">
+                <display-name xml:lang="x-default">SilverpopBabylissForMenDBID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="SilverpopDatabaseID">
+                <display-name xml:lang="x-default">Silverpop Database ID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="SilverpopNewslettersFr">
+                <display-name xml:lang="x-default">SilverpopNewslettersFr</display-name>
+                <description xml:lang="x-default">délimiteur= ;</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="contactListBabyliss">
+                <display-name xml:lang="x-default">contactListBabyliss</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="contactListBabylissForMen">
+                <display-name xml:lang="x-default">contactListBabylissForMen</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="contacttype">
+                <display-name xml:lang="x-default">Contact Type</display-name>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="firstname">
+                <display-name xml:lang="x-default">First Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="interest">
+                <display-name xml:lang="x-default">Interest</display-name>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="language">
+                <display-name xml:lang="x-default">Language</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastname">
+                <display-name xml:lang="x-default">Last Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Silverpop">
+                <display-name xml:lang="x-default">Silverpop</display-name>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="firstname"/>
+                <attribute attribute-id="lastname"/>
+                <attribute attribute-id="interest"/>
+                <attribute attribute-id="contacttype"/>
+                <attribute attribute-id="language"/>
+                <attribute attribute-id="lastModified" system="true"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="SilverpopDatabaseID"/>
+                <attribute attribute-id="SilverpopBabylissDBID"/>
+                <attribute attribute-id="SilverpopBabylissForMenDBID"/>
+                <attribute attribute-id="contactListBabyliss"/>
+                <attribute attribute-id="contactListBabylissForMen"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="WorkflowComponentDefinition">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="name">
+            <display-name xml:lang="de-DE">Name</display-name>
+            <display-name xml:lang="x-default">Name</display-name>
+            <description xml:lang="de-DE">Die eindeutige ID.</description>
+            <description xml:lang="x-default">The unique ID.</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="action">
+                <display-name xml:lang="de-DE">Action</display-name>
+                <display-name xml:lang="x-default">Action</display-name>
+                <description xml:lang="de-DE">Die Action die durch dieses Definition gerufen wird.</description>
+                <description xml:lang="x-default">The action called for this definition.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="description">
+                <display-name xml:lang="de-DE">Beschreibung</display-name>
+                <display-name xml:lang="x-default">Description</display-name>
+                <description xml:lang="de-DE">Eine Beschreibung.</description>
+                <description xml:lang="x-default">A description.</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="parameters">
+                <display-name xml:lang="de-DE">Parameter</display-name>
+                <display-name xml:lang="x-default">Parameters</display-name>
+                <description xml:lang="de-DE">Die Defintion der Parameter die in dieser Definition genutzt werden können. Folgendes Format muss eingehalten werden: [{“id” : “attr1”,“name” : “A readable name”,“type” : “boolean|date|time|datetime|double|int|string|password|enum”,"enumValues":["value1", ...],“mandatory” : true|false},...]</description>
+                <description xml:lang="x-default">Definition of parameters which can be used for this definition in the following format: [{“id” : “attr1”,“name” : “A readable name”,“type” : “boolean|date|time|datetime|double|int|string|password|enum”,"enumValues":["value1", ...],“mandatory” : true|false},...]</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="de-DE">General</display-name>
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="name"/>
+                <attribute attribute-id="description"/>
+                <attribute attribute-id="action"/>
+                <attribute attribute-id="parameters"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="WorkflowComponentInstance">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="de-DE">ID</display-name>
+            <display-name xml:lang="x-default">ID</display-name>
+            <description xml:lang="de-DE">Eine ID generiert aus der Workflow Instance, der Component Definition und der Position.</description>
+            <description xml:lang="x-default">An ID generated of the workflow instance, the component definition and the position.</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="action">
+                <display-name xml:lang="de-DE">Action</display-name>
+                <display-name xml:lang="x-default">Action</display-name>
+                <description xml:lang="de-DE">Die Action die durch dieses Definition gerufen wird. (eine Kopie der Definition; um eine unabhängige Ausführung während eine Defintionsupdates zu gewähleisten)</description>
+                <description xml:lang="x-default">The action called for this instance. (a copy of the definition; to allow an undependent execution when updating definitions)</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="asynchron">
+                <display-name xml:lang="de-DE">Asynchrone Ausführung</display-name>
+                <display-name xml:lang="x-default">Asynchron execution</display-name>
+                <description xml:lang="de-DE">Wenn true, dann wird die Komponente asynchron ausgeführt, sonst synchron. (eine Kopie der Definition; um eine unabhängige Ausführung während eine Defintionsupdates zu gewähleisten)</description>
+                <description xml:lang="x-default">If true, the component will be executed asynchronous, else synchronous. (a copy of the definition; to allow an undependent execution when updating definitions)</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="componentLogLevel">
+                <display-name xml:lang="x-default">Component Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job component logging should be done. It uses the settings from the WorkflowScheduleInstance if 'inherit' is selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">inherit</display>
+                        <value>inherit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="disabled">
+                <display-name xml:lang="de-DE">Deaktiviert</display-name>
+                <display-name xml:lang="x-default">Disabled</display-name>
+                <description xml:lang="de-DE">Wenn true, dann wird die Komponente nicht asynchron ausgeführt.</description>
+                <description xml:lang="x-default">If true, the component execution will be skipped.</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <display-name xml:lang="x-default">Display name</display-name>
+                <description xml:lang="x-default">The display name for this definition</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="endTime">
+                <display-name xml:lang="de-DE">Endzeitpunkt</display-name>
+                <display-name xml:lang="x-default">End time</display-name>
+                <description xml:lang="de-DE">Der Endzeitpunkt.</description>
+                <description xml:lang="x-default">The point of time when the component finished.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fileLogLevel">
+                <display-name xml:lang="x-default">File Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job base file logging should be done. It uses the settings from the WorkflowScheduleInstance if 'inherit' is selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">inherit</display>
+                        <value>inherit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="parameterDefinitions">
+                <display-name xml:lang="de-DE">Parameter</display-name>
+                <display-name xml:lang="x-default">Parameters</display-name>
+                <description xml:lang="de-DE">Die Defintion der Parameter die in dieser Definition genutzt werden können. Folgendes Format muss eingehalten werden: [{“id” : “attr1”,“name” : “A readable name”,“type” : “boolean|date|time|datetime|double|int|string|password|enum”,"enumValues":["value1", ...],“mandatory” : true|false},...] (eine Kopie der Definition; um eine unabhängige Ausführung während eine Defintionsupdates zu gewähleisten)</description>
+                <description xml:lang="x-default">Definition of parameters which can be used for this definition in the following format: [{“id” : “attr1”,“name” : “A readable name”,“type” : “boolean|date|time|datetime|double|int|string|password|enum”,"enumValues":["value1", ...],“mandatory” : true|false},...] (a copy of the definition; to allow an undependent execution when updating definitions)</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="parameterValues">
+                <display-name xml:lang="de-DE">Parameter</display-name>
+                <display-name xml:lang="x-default">Parameters</display-name>
+                <description xml:lang="de-DE">Die Parameter als JSON mit folgendem Format: {“attribute1 id” : “attribute1 value”,“attribute2 id” : “attribute2 value”,...} (eine Kopie der Definition; um eine unabhängige Ausführung während eine Defintionsupdates zu gewähleisten)</description>
+                <description xml:lang="x-default">The parameters as JSON in the following format: {“attribute1 id” : “attribute1 value”,“attribute2 id” : “attribute2 value”,...} (a copy of the definition; to allow an undependent execution when updating definitions)</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="position">
+                <display-name xml:lang="de-DE">Position</display-name>
+                <display-name xml:lang="x-default">Position</display-name>
+                <description xml:lang="de-DE">Die Position. (eine Kopie der Definition; um eine unabhängige Ausführung während eine Defintionsupdates zu gewähleisten)</description>
+                <description xml:lang="x-default">The position. (a copy of the definition; to allow an undependent execution when updating definitions)</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="processingJobId">
+                <display-name xml:lang="de-DE">ID des ausführenden DW Jobs</display-name>
+                <display-name xml:lang="x-default">Processing DW job ID</display-name>
+                <description xml:lang="de-DE">Die ID des ausführenden DW Jobs.</description>
+                <description xml:lang="x-default">The ID of the executing DW job.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="startTime">
+                <display-name xml:lang="de-DE">Startzeitpunkt</display-name>
+                <display-name xml:lang="x-default">Start time</display-name>
+                <description xml:lang="de-DE">Der Startzeitpunkt.</description>
+                <description xml:lang="x-default">The point of time when the component started.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <display-name xml:lang="de-DE">Status</display-name>
+                <display-name xml:lang="x-default">Status</display-name>
+                <description xml:lang="de-DE">Der aktuelle Status.</description>
+                <description xml:lang="x-default">The current status.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="de-DE">Wartend</display>
+                        <display xml:lang="x-default">Waiting</display>
+                        <value>WAITING</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Laufend</display>
+                        <display xml:lang="x-default">Running</display>
+                        <value>RUNNING</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Beendet</display>
+                        <display xml:lang="x-default">Finished</display>
+                        <value>FINISHED_OK</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Beendet mit Warnungen</display>
+                        <display xml:lang="x-default">Finished with warnings</display>
+                        <value>FINISHED_WARN</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Beendet mit Fehlern</display>
+                        <display xml:lang="x-default">Finished with errors</display>
+                        <value>FINISHED_ERROR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="statusMessages">
+                <display-name xml:lang="de-DE">Statusmeldungen</display-name>
+                <display-name xml:lang="x-default">Status messages</display-name>
+                <description xml:lang="de-DE">Statusmeldungen zum Workflow der Komponente.</description>
+                <description xml:lang="x-default">Status messages describing the workflow of the component.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="workflowComponentDefinitionName">
+                <display-name xml:lang="de-DE">WorkflowComponentDefinitionName</display-name>
+                <display-name xml:lang="x-default">WorkflowComponentDefinitionName</display-name>
+                <description xml:lang="de-DE">Der Name (ID) des zugehörigen WorkflowComponentDefinition Objektes.</description>
+                <description xml:lang="x-default">The name (ID) of the relating WorkflowComponentDefinition object.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="workflowScheduleInstanceID">
+                <display-name xml:lang="de-DE">Workflow schedule instance ID</display-name>
+                <display-name xml:lang="x-default">Workflow schedule instance ID</display-name>
+                <description xml:lang="de-DE">Die ID der zugehörigen Workflow Schedule Instance.</description>
+                <description xml:lang="x-default">The ID of the corresponding workflow schedule instance.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="de-DE">General</display-name>
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="workflowScheduleInstanceID"/>
+                <attribute attribute-id="workflowComponentDefinitionName"/>
+                <attribute attribute-id="status"/>
+                <attribute attribute-id="statusMessages"/>
+                <attribute attribute-id="startTime"/>
+                <attribute attribute-id="endTime"/>
+                <attribute attribute-id="processingJobId"/>
+                <attribute attribute-id="action"/>
+                <attribute attribute-id="parameterDefinitions"/>
+                <attribute attribute-id="parameterValues"/>
+                <attribute attribute-id="position"/>
+                <attribute attribute-id="asynchron"/>
+                <attribute attribute-id="disabled"/>
+                <attribute attribute-id="fileLogLevel"/>
+                <attribute attribute-id="componentLogLevel"/>
+                <attribute attribute-id="displayName"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="WorkflowScheduleDefinition">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="de-DE">ID</display-name>
+            <display-name xml:lang="x-default">ID</display-name>
+            <description xml:lang="de-DE">Die eindeutige ID.</description>
+            <description xml:lang="x-default">The unique ID.</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="componentLogLevel">
+                <display-name xml:lang="x-default">Component Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job component logging should be done. No file logging is done when 'none' has been selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="description">
+                <display-name xml:lang="de-DE">Beschreibung</display-name>
+                <display-name xml:lang="x-default">Description</display-name>
+                <description xml:lang="de-DE">Eine Beschreibung.</description>
+                <description xml:lang="x-default">A description.</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="enabled">
+                <display-name xml:lang="de-DE">Aktiv</display-name>
+                <display-name xml:lang="x-default">Enabled</display-name>
+                <description xml:lang="de-DE">Anhaken um den workflow zu aktivieren.</description>
+                <description xml:lang="x-default">Check to enable the workflow.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionActiveFrom">
+                <display-name xml:lang="de-DE">Gültig ab</display-name>
+                <display-name xml:lang="x-default">Valid from</display-name>
+                <description xml:lang="de-DE">Der Zeitpunkt ab dem der workflow startet.</description>
+                <description xml:lang="x-default">The point of time at which the workflow starts.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionActiveTo">
+                <display-name xml:lang="de-DE">Gültig bis</display-name>
+                <display-name xml:lang="x-default">Valid to</display-name>
+                <description xml:lang="de-DE">Der Zeitpunkt bis zu dem der workflow läuft.</description>
+                <description xml:lang="x-default">The point of time to which the workflow will be executed.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionInterval">
+                <display-name xml:lang="de-DE">Ausführungsintervall</display-name>
+                <display-name xml:lang="x-default">Execution interval</display-name>
+                <description xml:lang="de-DE">Das Intervall in dem der workflow läuft.</description>
+                <description xml:lang="x-default">The interval at which the workflow will run.</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionIntervalType">
+                <display-name xml:lang="de-DE">Ausführungsintervalltyp</display-name>
+                <display-name xml:lang="x-default">Execution interval type</display-name>
+                <description xml:lang="de-DE">Der Typ des Intervalls.</description>
+                <description xml:lang="x-default">The type of the interval.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="de-DE">Minute</display>
+                        <display xml:lang="x-default">Minute</display>
+                        <value>MINUTE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Stunde</display>
+                        <display xml:lang="x-default">Hour</display>
+                        <value>HOUR</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Tag</display>
+                        <display xml:lang="x-default">Day</display>
+                        <value>DAY</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Woche</display>
+                        <display xml:lang="x-default">Week</display>
+                        <value>WEEK</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Monat</display>
+                        <display xml:lang="x-default">Month</display>
+                        <value>MONTH</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Jahr</display>
+                        <display xml:lang="x-default">Year</display>
+                        <value>YEAR</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionTime">
+                <display-name xml:lang="de-DE">Zeitpunkt der Ausführung</display-name>
+                <display-name xml:lang="x-default">Execution time</display-name>
+                <description xml:lang="de-DE">Die Uhrzeit an der der workflow läuft.</description>
+                <description xml:lang="x-default">The time at which the workflow will run.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="executionWeekdays">
+                <display-name xml:lang="de-DE">Ausführungstage</display-name>
+                <display-name xml:lang="x-default">Execution week days</display-name>
+                <description xml:lang="de-DE">Die Tage an denen der workflow läuft.</description>
+                <description xml:lang="x-default">The days at which the workflow will run.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fileLogLevel">
+                <display-name xml:lang="x-default">File Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job base file logging should be done. No file logging is done when 'none' has been selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="name">
+                <display-name xml:lang="de-DE">Name</display-name>
+                <display-name xml:lang="x-default">Name</display-name>
+                <description xml:lang="de-DE">Der Name des workflows.</description>
+                <description xml:lang="x-default">The name of the workflow.</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationEmails">
+                <display-name xml:lang="de-DE">Benachrichtigungsemailadressen</display-name>
+                <display-name xml:lang="x-default">Notification email addresses</display-name>
+                <description xml:lang="de-DE">Eine Liste mit Emailadressen an die eine Benachrichtigungsmail geschrieben wird.</description>
+                <description xml:lang="x-default">A set of string with the notification email addresses.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationMode">
+                <display-name xml:lang="x-default">Notification mode</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">concise</display>
+                        <value>CONCISE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">verbose</display>
+                        <value>VERBOSE</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationStatuses">
+                <display-name xml:lang="de-DE">Benachrichtigungsstatus</display-name>
+                <display-name xml:lang="x-default">Notification statuses</display-name>
+                <description xml:lang="de-DE">Eine Liste mit den Status bei denen eine Benachrichtigungsemail geschickt wird.</description>
+                <description xml:lang="x-default">A set of string with the statuses at which a notification email will be sent.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteIds">
+                <display-name xml:lang="de-DE">Site IDs</display-name>
+                <display-name xml:lang="x-default">Site IDs</display-name>
+                <description xml:lang="de-DE">Die IDs der Seiten für die der Workflow ausgeführt werden soll.</description>
+                <description xml:lang="x-default">The IDs of the sites for which the workflow will be executed.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <display-name xml:lang="de-DE">Typ</display-name>
+                <display-name xml:lang="x-default">Type</display-name>
+                <description xml:lang="de-DE">Der Typ des workflows. Recurring workflows laufen in einem festgelegtem Intervall und single workflows nur einmal.</description>
+                <description xml:lang="x-default">The type of the workflow. Recurring workflows will run in a given intervall and single workflows will run only one time.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="de-DE">Single</display>
+                        <display xml:lang="x-default">Single</display>
+                        <value>SINGLE</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="de-DE">Recurring</display>
+                        <display xml:lang="x-default">Recurring</display>
+                        <value>RECURRING</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="de-DE">General</display-name>
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="enabled"/>
+                <attribute attribute-id="name"/>
+                <attribute attribute-id="description"/>
+                <attribute attribute-id="type"/>
+                <attribute attribute-id="executionTime"/>
+                <attribute attribute-id="executionActiveFrom"/>
+                <attribute attribute-id="executionActiveTo"/>
+                <attribute attribute-id="executionInterval"/>
+                <attribute attribute-id="executionIntervalType"/>
+                <attribute attribute-id="executionWeekdays"/>
+                <attribute attribute-id="notificationStatuses"/>
+                <attribute attribute-id="notificationEmails"/>
+                <attribute attribute-id="notificationMode"/>
+                <attribute attribute-id="siteIds"/>
+                <attribute attribute-id="fileLogLevel"/>
+                <attribute attribute-id="componentLogLevel"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="WorkflowScheduleDefinitionWorkflowComponentDefinitionRelation">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="de-DE">ID</display-name>
+            <display-name xml:lang="x-default">ID</display-name>
+            <description xml:lang="de-DE">Eine ID generiert aus der Workflow Definition, der Component Definition und der Position.</description>
+            <description xml:lang="x-default">An ID generated of the workflow definition, the component definition and the position.</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="asynchron">
+                <display-name xml:lang="de-DE">Asynchrone Ausführung</display-name>
+                <display-name xml:lang="x-default">Asynchron execution</display-name>
+                <description xml:lang="de-DE">Wenn true, dann wird die Komponente asynchron ausgeführt, sonst synchron.</description>
+                <description xml:lang="x-default">If true, the component will be executed asynchronous, else synchronous.</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="componentLogLevel">
+                <display-name xml:lang="x-default">Component Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job component logging should be done. It uses the settings from the WorkflowScheduleInstance if 'inherit' is selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">inherit</display>
+                        <value>inherit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="disabled">
+                <display-name xml:lang="de-DE">Deaktiviert</display-name>
+                <display-name xml:lang="x-default">Disabled</display-name>
+                <description xml:lang="de-DE">Wenn true, dann wird die Komponente nicht asynchron ausgeführt.</description>
+                <description xml:lang="x-default">If true, the component execution will be skipped.</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="displayName">
+                <display-name xml:lang="x-default">Display name</display-name>
+                <description xml:lang="x-default">The display name for this definition</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fileLogLevel">
+                <display-name xml:lang="x-default">File Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job base file logging should be done. It uses the settings from the WorkflowScheduleInstance if 'inherit' is selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">inherit</display>
+                        <value>inherit</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="parameters">
+                <display-name xml:lang="de-DE">Parameter</display-name>
+                <display-name xml:lang="x-default">Parameters</display-name>
+                <description xml:lang="de-DE">Die Parameter als JSON mit folgendem Format: {“attribute1 id” : “attribute1 value”,“attribute2 id” : “attribute2 value”,...}</description>
+                <description xml:lang="x-default">The parameters as JSON in the following format: {“attribute1 id” : “attribute1 value”,“attribute2 id” : “attribute2 value”,...}</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="position">
+                <display-name xml:lang="de-DE">Position</display-name>
+                <display-name xml:lang="x-default">Position</display-name>
+                <description xml:lang="de-DE">Die Position.</description>
+                <description xml:lang="x-default">The position.</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="workflowComponentDefinitionName">
+                <display-name xml:lang="de-DE">WorkflowComponentDefinitionName</display-name>
+                <display-name xml:lang="x-default">WorkflowComponentDefinitionName</display-name>
+                <description xml:lang="de-DE">Der Name (ID) des zugehörigen WorkflowComponentDefinition Objektes.</description>
+                <description xml:lang="x-default">The name (ID) of the relating WorkflowComponentDefinition object.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="workflowScheduleDefinitionID">
+                <display-name xml:lang="de-DE">WorkflowScheduleDefinitionID</display-name>
+                <display-name xml:lang="x-default">WorkflowScheduleDefinitionID</display-name>
+                <description xml:lang="de-DE">Die ID des zugehörigen WorkflowScheduleDefinition Objektes.</description>
+                <description xml:lang="x-default">The ID of the relating WorkflowScheduleDefinition object.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="de-DE">General</display-name>
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="workflowScheduleDefinitionID"/>
+                <attribute attribute-id="workflowComponentDefinitionName"/>
+                <attribute attribute-id="position"/>
+                <attribute attribute-id="parameters"/>
+                <attribute attribute-id="asynchron"/>
+                <attribute attribute-id="disabled"/>
+                <attribute attribute-id="fileLogLevel"/>
+                <attribute attribute-id="componentLogLevel"/>
+                <attribute attribute-id="displayName"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="WorkflowScheduleInstance">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <display-name xml:lang="de-DE">ID</display-name>
+            <display-name xml:lang="x-default">ID</display-name>
+            <description xml:lang="de-DE">Eine ID generiert aus der Site ID, der Workflow Definition und dem geplanten Startzeitpunkt.</description>
+            <description xml:lang="x-default">An ID generated of the site ID, the workflow definition and the planned start time.</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="componentLogLevel">
+                <display-name xml:lang="x-default">Component Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job component logging should be done. No file logging is done when 'none' has been selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="endTime">
+                <display-name xml:lang="de-DE">Endzeit</display-name>
+                <display-name xml:lang="x-default">End time</display-name>
+                <description xml:lang="de-DE">Der Zeitpunkt an dem der workflow beendet wurde.</description>
+                <description xml:lang="x-default">The point of time at which the workflow finished.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fileLogLevel">
+                <display-name xml:lang="x-default">File Log Level</display-name>
+                <description xml:lang="x-default">Defines at which level the job base file logging should be done. No file logging is done when 'none' has been selected.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">none</display>
+                        <value>none</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">error</display>
+                        <value>error</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">debug</display>
+                        <value>debug</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">info</display>
+                        <value>info</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">warn</display>
+                        <value>warn</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationEmails">
+                <display-name xml:lang="de-DE">Benachrichtigungsemailadressen</display-name>
+                <display-name xml:lang="x-default">Notification email addresses</display-name>
+                <description xml:lang="de-DE">Eine Liste mit Emailadressen an die eine Benachrichtigungsmail geschrieben wird.</description>
+                <description xml:lang="x-default">A set of string with the notification email addresses.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationMode">
+                <display-name xml:lang="x-default">Notification mode</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="notificationStatuses">
+                <display-name xml:lang="de-DE">Benachrichtigungsstatus</display-name>
+                <display-name xml:lang="x-default">Notification statuses</display-name>
+                <description xml:lang="de-DE">Eine Liste mit den Status bei denen eine Benachrichtigungsemail geschickt wird.</description>
+                <description xml:lang="x-default">A set of string with the statuses at which a notification email will be sent.</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="plannedStartTime">
+                <display-name xml:lang="de-DE">Geplante Startzeit</display-name>
+                <display-name xml:lang="x-default">Planned start time</display-name>
+                <description xml:lang="de-DE">Der Zeitpunkt an dem der Workflowstart geplant ist.</description>
+                <description xml:lang="x-default">The point of time at which the workflow start is planned.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="runtimeData">
+                <display-name xml:lang="de-DE">Laufzeitdaten</display-name>
+                <display-name xml:lang="x-default">Runtime data</display-name>
+                <description xml:lang="de-DE">Wird genutzt um Daten während der Laufzeit des Workflows zu speichern.</description>
+                <description xml:lang="x-default">Used for saving data during the execution of the workflow.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteId">
+                <display-name xml:lang="de-DE">Site ID</display-name>
+                <display-name xml:lang="x-default">Site ID</display-name>
+                <description xml:lang="de-DE">Die ID der Site in der der Workflow ausgeführt wird.</description>
+                <description xml:lang="x-default">The ID of the site in which the workflow will be executed.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="startTime">
+                <display-name xml:lang="de-DE">Startzeit</display-name>
+                <display-name xml:lang="x-default">Start time</display-name>
+                <description xml:lang="de-DE">Der Zeitpunkt an dem der workflow gestartet wurde.</description>
+                <description xml:lang="x-default">The point of time at which the workflow started.</description>
+                <type>datetime</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="status">
+                <display-name xml:lang="de-DE">Status</display-name>
+                <display-name xml:lang="x-default">Status</display-name>
+                <description xml:lang="de-DE">Der aktuelle Status.</description>
+                <description xml:lang="x-default">The current status.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="workflowScheduleDefinitionID">
+                <display-name xml:lang="de-DE">Workflow schedule definition ID</display-name>
+                <display-name xml:lang="x-default">Workflow schedule definition ID</display-name>
+                <description xml:lang="de-DE">Die ID des zugehörigen WorkflowScheduleDefinition Objektes.</description>
+                <description xml:lang="x-default">The ID of the related WorkflowScheduleDefinition object.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General">
+                <display-name xml:lang="de-DE">General</display-name>
+                <display-name xml:lang="x-default">General</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="workflowScheduleDefinitionID"/>
+                <attribute attribute-id="siteId"/>
+                <attribute attribute-id="plannedStartTime"/>
+                <attribute attribute-id="startTime"/>
+                <attribute attribute-id="endTime"/>
+                <attribute attribute-id="runtimeData"/>
+                <attribute attribute-id="status"/>
+                <attribute attribute-id="notificationStatuses"/>
+                <attribute attribute-id="notificationEmails"/>
+                <attribute attribute-id="notificationMode"/>
+                <attribute attribute-id="fileLogLevel"/>
+                <attribute attribute-id="componentLogLevel"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="associates">
+        <display-name xml:lang="x-default">Associates</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="employeeId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="firstName">
+                <display-name xml:lang="x-default">First Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="hashedCode">
+                <display-name xml:lang="x-default">Hashed Code</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isLocked">
+                <display-name xml:lang="x-default">Is Locked flag</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastName">
+                <display-name xml:lang="x-default">Last Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="loginAttempts">
+                <display-name xml:lang="x-default">Login Attempts</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+                <min-value>0.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="permissionGroupId">
+                <display-name xml:lang="x-default">Permission Group Id</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="salt">
+                <display-name xml:lang="x-default">Salt Key</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="associates">
+                <display-name xml:lang="x-default">Associates</display-name>
+                <attribute attribute-id="employeeId"/>
+                <attribute attribute-id="lastName"/>
+                <attribute attribute-id="firstName"/>
+                <attribute attribute-id="permissionGroupId"/>
+                <attribute attribute-id="loginAttempts"/>
+                <attribute attribute-id="isLocked"/>
+                <attribute attribute-id="hashedCode"/>
+                <attribute attribute-id="salt"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="forbiddenUrl">
+        <display-name xml:lang="x-default">ForbiddenUrl</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ForbiddenUrl">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="isForbidden">
+                <display-name xml:lang="x-default">isForbidden</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="url">
+                <display-name xml:lang="x-default">url</display-name>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Corporate">
+                <display-name xml:lang="x-default">Corporate</display-name>
+                <attribute attribute-id="isForbidden"/>
+                <attribute attribute-id="url"/>
+                <attribute attribute-id="ForbiddenUrl"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="permissionGroup">
+        <display-name xml:lang="x-default">Permission Group</display-name>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="permissionGroupId">
+            <display-name xml:lang="x-default">Permission Group ID</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+            <field-length>0</field-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="accessSalesReports">
+                <display-name xml:lang="x-default">Access Sales Reports in Associate Profile</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="accessStoreLevelSalesReports">
+                <display-name xml:lang="x-default">Access Sales Reports  at store level (including other associates sales reports)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowAdmin">
+                <display-name xml:lang="x-default">Allow Admin Dashboard Access</display-name>
+                <description xml:lang="x-default">Allows a store associate to log into and use the Admin Dashboard</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowItemPriceOverrideByAmount">
+                <display-name xml:lang="x-default">Allow Item Override by Amount Off (to defined max)</display-name>
+                <description xml:lang="x-default">The associate can take an amount off the selling price.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowItemPriceOverrideByPercent">
+                <display-name xml:lang="x-default">Allow Item Override By Percent Off (to defined max)</display-name>
+                <description xml:lang="x-default">Allows the store associate to override an item price by a percent off</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowItemPriceOverrideFixedPrice">
+                <display-name xml:lang="x-default">Allow Fixed-Price Override (no limits)</display-name>
+                <description xml:lang="x-default">Allows the associate to price override to any fixed price.  There are no limitations.  The fixed price can be as low as 0.00</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowLOBO">
+                <display-name xml:lang="x-default">Allow EA App Access</display-name>
+                <description xml:lang="x-default">Allows a store associate to log into and use the EA pp</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowManagerOverrides">
+                <display-name xml:lang="x-default">Allow Manager Overrides</display-name>
+                <description xml:lang="x-default">When enabled, users with this permission can perform Manager Price Overrides for transactions where other associates are logged in.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowShippingOverrideByAmount">
+                <display-name xml:lang="x-default">Allow Shipping Override by Amount Off (to defined max)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowShippingOverrideByPercent">
+                <display-name xml:lang="x-default">Allow Shipping Override by Percent Off (to defined max)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowShippingOverrideFixed">
+                <display-name xml:lang="x-default">Allow Fixed-Price Shipping Override (no limits)</display-name>
+                <description xml:lang="x-default">Allows an associate to override the shipping price to any amount down to 0.00</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="allowTrainingMode">
+                <display-name xml:lang="x-default">Allow Training Mode (Future Feature)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="itemPriceOverrideMaxPercent">
+                <display-name xml:lang="x-default">Maximum Item Override Percentage/Amount Off Allowed</display-name>
+                <description xml:lang="x-default">Enter the maximum percentage off an associate may take.  This value is used to calculate the maximum dollar amount off, too.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">0%</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">5%</display>
+                        <value>.05</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">10%</display>
+                        <value>.1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">15%</display>
+                        <value>.15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">20%</display>
+                        <value>.2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">25%</display>
+                        <value>.25</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">30%</display>
+                        <value>.3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">35%</display>
+                        <value>.35</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">40%</display>
+                        <value>.4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">45%</display>
+                        <value>.45</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">50%</display>
+                        <value>.5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">55%</display>
+                        <value>.55</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">60%</display>
+                        <value>.6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">65%</display>
+                        <value>.65</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">70%</display>
+                        <value>.7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">75%</display>
+                        <value>.75</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">80%</display>
+                        <value>.8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">85%</display>
+                        <value>.85</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">90%</display>
+                        <value>.9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">95%</display>
+                        <value>.95</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">100%</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="permissionGroupName">
+                <display-name xml:lang="x-default">permissionGroupName</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippingPriceOverrideMaxPercent">
+                <display-name xml:lang="x-default">Maximum Shipping Override Percentage/Amount Off Allowed</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">0%</display>
+                        <value>0</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">5%</display>
+                        <value>.05</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">10%</display>
+                        <value>.1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">15%</display>
+                        <value>.15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">20%</display>
+                        <value>.2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">25%</display>
+                        <value>.25</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">30%</display>
+                        <value>.30</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">35%</display>
+                        <value>.35</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">40%</display>
+                        <value>.4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">45%</display>
+                        <value>.45</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">50%</display>
+                        <value>.5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">55%</display>
+                        <value>.55</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">60%</display>
+                        <value>.6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">65%</display>
+                        <value>.65</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">70%</display>
+                        <value>.7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">75%</display>
+                        <value>.75</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">80%</display>
+                        <value>.8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">85%</display>
+                        <value>.85</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">90%</display>
+                        <value>.9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">95%</display>
+                        <value>.95</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">100%</display>
+                        <value>1</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="permissionGroup">
+                <display-name xml:lang="x-default">Permission Group</display-name>
+                <attribute attribute-id="permissionGroupId"/>
+                <attribute attribute-id="permissionGroupName"/>
+            </attribute-group>
+            <attribute-group group-id="LOBO">
+                <display-name xml:lang="x-default">Login On Behalf Of</display-name>
+                <attribute attribute-id="allowLOBO"/>
+            </attribute-group>
+            <attribute-group group-id="itemPriceOverrides">
+                <display-name xml:lang="x-default">Item Price Overrides</display-name>
+                <attribute attribute-id="allowItemPriceOverrideFixedPrice"/>
+                <attribute attribute-id="allowItemPriceOverrideByPercent"/>
+                <attribute attribute-id="allowItemPriceOverrideByAmount"/>
+                <attribute attribute-id="itemPriceOverrideMaxPercent"/>
+            </attribute-group>
+            <attribute-group group-id="shippingOverrides">
+                <display-name xml:lang="x-default">Shipping Price Overrides</display-name>
+                <attribute attribute-id="allowShippingOverrideFixed"/>
+                <attribute attribute-id="allowShippingOverrideByPercent"/>
+                <attribute attribute-id="allowShippingOverrideByAmount"/>
+                <attribute attribute-id="shippingPriceOverrideMaxPercent"/>
+            </attribute-group>
+            <attribute-group group-id="trainingMode">
+                <display-name xml:lang="x-default">Training Mode</display-name>
+                <attribute attribute-id="allowTrainingMode"/>
+            </attribute-group>
+            <attribute-group group-id="managerOverride">
+                <display-name xml:lang="x-default">Manager Overrides</display-name>
+                <attribute attribute-id="allowManagerOverrides"/>
+            </attribute-group>
+            <attribute-group group-id="adminAccess">
+                <display-name xml:lang="x-default">Admin Dashboard Access</display-name>
+                <attribute attribute-id="allowAdmin"/>
+            </attribute-group>
+            <attribute-group group-id="salesReports">
+                <display-name xml:lang="x-default">Sales Reports</display-name>
+                <attribute attribute-id="accessStoreLevelSalesReports"/>
+                <attribute attribute-id="accessSalesReports"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="storeAssociates">
+        <display-name xml:lang="x-default">Store Associates Credentials</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="storeId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="associateIDs">
+                <display-name xml:lang="x-default">Associate IDs</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="employees">
+                <display-name xml:lang="x-default">Employees</display-name>
+                <attribute attribute-id="storeId"/>
+                <attribute attribute-id="associateIDs"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="storeCredentials">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="storeId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="eaCredentialsExpired">
+                <display-name xml:lang="x-default">Credentials Expired</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eaStorePassword">
+                <display-name xml:lang="x-default">Store Password</display-name>
+                <type>password</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eaStoreUsername">
+                <display-name xml:lang="x-default">Store Username</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="store credentials">
+                <display-name xml:lang="x-default">Store Credentials</display-name>
+                <attribute attribute-id="storeId"/>
+                <attribute attribute-id="eaCredentialsExpired"/>
+                <attribute attribute-id="eaStoreUsername"/>
+                <attribute attribute-id="eaStorePassword"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="webOrder">
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="token">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="orderNo">
+                <display-name xml:lang="x-default">Order Number</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="mapping">
+                <attribute attribute-id="orderNo"/>
+                <attribute attribute-id="token"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
 
 </metadata>
