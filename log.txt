@@ -1,0 +1,69 @@
+xml:lang="x-default">Besoins
+xml:lang="de-DE">Bedürfnis
+
+xml:lang="x-default">Vitesse d'air
+xml:lang="de-DE">Luftgeschwindigkeit
+
+xml:lang="x-default">Accessoires
+xml:lang="de-DE">Zubehör
+
+xml:lang="x-default">Brosses
+xml:lang="de-DE">Bürsten
+
+xml:lang="x-default">Collections
+xml:lang="de-DE">Kollektionen
+
+xml:lang="x-default">Fonctions
+xml:lang="de-DE">Funktionen
+
+xml:lang="x-default">Format
+xml:lang="de-DE">Form
+
+xml:lang="x-default">Hauteurs de Coupe
+xml:lang="de-DE">Schnittlängen
+
+xml:lang="x-default">Longueur de cheveux
+xml:lang="de-DE">Haarlänge
+
+xml:lang="x-default">Matières
+xml:lang="de-DE">Material
+
+xml:lang="x-default">Moteurs
+xml:lang="de-DE">Motor
+
+xml:lang="x-default">Options
+xml:lang="de-DE">Optionen
+
+xml:lang="x-default">Picots/Poils
+xml:lang="de-DE">Borsten
+
+xml:lang="x-default">Précisions
+xml:lang="de-DE">Präzision
+
+xml:lang="x-default">Réglage Hauteur
+xml:lang="de-DE">Einstellung
+
+xml:lang="x-default">Sens de bouclage
+xml:lang="de-DE">Lockenrichtung
+
+xml:lang="x-default">Styles
+xml:lang="de-DE">Styles
+
+xml:lang="x-default">Type de cheveux
+xml:lang="de-DE">Haartyp
+
+xml:lang="x-default">Systèmes
+xml:lang="de-DE">System
+
+xml:lang="x-default">Usages
+xml:lang="de-DE">Anwendung
+
+xml:lang="x-default">Utilisations
+xml:lang="de-DE">Anwendung
+
+xml:lang="x-default">Boucles
+xml:lang="de-DE">Locken
+
+xml:lang="x-default">Nombre de Flashs
+xml:lang="de-DE">Anzahl der Lichtimpulse
+
