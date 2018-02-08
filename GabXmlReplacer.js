@@ -6,9 +6,23 @@ Use xmlReplassor in Google Drive to generate the object toReplaceObject
 Put your xml to be replaced in the GabXmlReplassor directory eg : 
     /home/lyd/Dropbox/Informatique/Node.js/xml/xmlReplacorGab
 Copy past to replace the object toReplaceObject in this script
-Use the command : node GabXmlReplassor.js 20180118Dev05SysObjTyp.xml
+
+Exemple of command to use : node GabXmlReplacer.js 20180205StagingMeta.xml
+
 Check if everything is ok and improve this tool if something when wrong
+
+
+toDo: error with text like this Präzision & Einstellung because of the &
+
+ is replaced with &apos;
+" is replaced with &quot;
+& is replaced with &amp;
+< is replaced with &lt;
+> is replaced with &gt;
+
+
 */
+
 
 
 
@@ -58,7 +72,7 @@ var o = toReplaceObject = { //
     'xml:lang="fr-FR">Technique d\'épilation': 'xml:lang="de-DE">Art der Haarentfernung',
     'xml:lang="fr-FR">Avis de l\'expert': 'xml:lang="de-DE">Tipps vom Experten',
     'xml:lang="fr-FR">Nombre de face': 'xml:lang="de-DE">Anzahl Seiten',
-    'xml:lang="fr-FR">product FAQ & Advice': 'xml:lang="de-DE">FAQ & Hilfe zu Produkten',
+    'xml:lang="fr-FR">product FAQ & Advice': 'xml:lang="de-DE">FAQ &amp; Hilfe zu Produkten',
     'xml:lang="fr-FR">Accessoires': 'xml:lang="de-DE">Zubehör',
     'xml:lang="fr-FR">Coffret de rangement': 'xml:lang="de-DE">Aufbewahrungskoffer',
     'xml:lang="fr-FR">Besoins': 'xml:lang="de-DE">Bedürfnisse',
@@ -105,7 +119,7 @@ var o = toReplaceObject = { //
     'xml:lang="fr-FR">Modele Lisseur Variation': 'xml:lang="de-DE">Modell Glätteisen Variation',
     'xml:lang="fr-FR">Revêtement des plaques': 'xml:lang="de-DE">Platten Beschichtung',
     'xml:lang="fr-FR">Alimentation': 'xml:lang="de-DE">Stromversorgung',
-    'xml:lang="fr-FR">Précision et réglage': 'xml:lang="de-DE">Präzision & Einstellung',
+    'xml:lang="fr-FR">Précision et réglage': 'xml:lang="de-DE">Präzision &amp; Einstellung',
     'xml:lang="fr-FR">Fonction quick charge': 'xml:lang="de-DE">Schnellladefunktion',
     'xml:lang="fr-FR">Prix de vente conseillé*': 'xml:lang="de-DE">UVP*',
     'xml:lang="fr-FR">Taille': 'xml:lang="de-DE">Größe',
@@ -118,7 +132,7 @@ var o = toReplaceObject = { //
     'xml:lang="fr-FR">Type Ciseaux Variation': 'xml:lang="de-DE">Schere Typ Variation',
     'xml:lang="fr-FR">Fonction vapeur': 'xml:lang="de-DE">Dampffunktion',
     'xml:lang="fr-FR">Watts': 'xml:lang="de-DE">Watt',
-    'xml:lang="fr-FR">Wet & Dry': 'xml:lang="de-DE">Wet & Dry',
+    'xml:lang="fr-FR">Wet & Dry': 'xml:lang="de-DE">Wet &amp; Dry',
     'xml:lang="fr-FR">Zone du Corps': 'xml:lang="de-DE">Körperbereich',
     'xml:lang="fr-FR">Cheveux': 'xml:lang="de-DE">Haare',
     'xml:lang="fr-FR">Hatch - Retaillers order': 'xml:lang="de-DE">Hatch - Händlerbestellung',
